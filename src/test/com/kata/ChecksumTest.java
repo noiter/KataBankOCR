@@ -10,7 +10,7 @@ public class ChecksumTest {
         //given
         EntryParser entryParser = new EntryParser();
         String[] originalAccunt = new String[]{""};
-        entryParser.parse()
+//        entryParser.parse()
 
         //when
 
