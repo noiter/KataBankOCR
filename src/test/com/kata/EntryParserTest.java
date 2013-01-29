@@ -45,89 +45,89 @@ public class EntryParserTest {
         assertThat(entryParser.parse(two), is("222222222"));
     }
 
-//    @Test
-//    public void should_parse_3() {
-//        //given
-//        String three =
-//                "" +
-//                        " _ " +
-//                        " _|" +
-//                        " _|";
-//        //then
-//        assertThat(entryParser.parse(three), is("3"));
-//    }
-//
-//    @Test
-//     public void should_parse_4() {
-//        //given
-//        String four =
-//                "" +
-//                        "   " +
-//                        "|_|" +
-//                        "  |";
-//        //then
-//        assertThat(entryParser.parse(four), is("4"));
-//    }
-//
-//    @Test
-//     public void should_parse_5() {
-//        //given
-//        String five =
-//                "" +
-//                        " _ " +
-//                        "|_ " +
-//                        " _|";
-//        //then
-//        assertThat(entryParser.parse(five), is("5"));
-//    }
-//
-//    @Test
-//     public void should_parse_6() {
-//        //given
-//        String six =
-//                "" +
-//                        " _ " +
-//                        "|_ " +
-//                        "|_|";
-//        //then
-//        assertThat(entryParser.parse(six), is("6"));
-//    }
-//
-//    @Test
-//     public void should_parse_7() {
-//        //given
-//        String seven =
-//                "" +
-//                        " _ " +
-//                        "  |" +
-//                        "  |";
-//        //then
-//        assertThat(entryParser.parse(seven), is("7"));
-//    }
-//
-//    @Test
-//     public void should_parse_8() {
-//        //given
-//        String eight =
-//                "" +
-//                        " _ " +
-//                        "|_|" +
-//                        "|_|";
-//        //then
-//        assertThat(entryParser.parse(eight), is("8"));
-//    }
-//
-//    @Test
-//     public void should_parse_9() {
-//        //given
-//        String nine =
-//                "" +
-//                        " _ " +
-//                        "|_|" +
-//                        " _|";
-//        //then
-//        assertThat(entryParser.parse(nine), is("9"));
-//    }
+    @Test
+    public void parse_account_when_all_are_3() {
+        //given
+        String three =
+                "" +
+                        " _  _  _  _  _  _  _  _  _ " +
+                        " _| _| _| _| _| _| _| _| _|" +
+                        " _| _| _| _| _| _| _| _| _|";
+        //then
+        assertThat(entryParser.parse(three), is("333333333"));
+    }
+
+    @Test
+     public void parse_account_when_all_are_4() {
+        //given
+        String four =
+                "" +
+                        "                           " +
+                        "|_||_||_||_||_||_||_||_||_|" +
+                        "  |  |  |  |  |  |  |  |  |";
+        //then
+        assertThat(entryParser.parse(four), is("444444444"));
+    }
+
+    @Test
+     public void parse_account_when_all_are_5() {
+        //given
+        String five =
+                "" +
+                        " _  _  _  _  _  _  _  _  _ " +
+                        "|_ |_ |_ |_ |_ |_ |_ |_ |_ " +
+                        " _| _| _| _| _| _| _| _| _|";
+        //then
+        assertThat(entryParser.parse(five), is("555555555"));
+    }
+
+    @Test
+     public void parse_account_when_all_are_6() {
+        //given
+        String six =
+                "" +
+                        " _  _  _  _  _  _  _  _  _ " +
+                        "|_ |_ |_ |_ |_ |_ |_ |_ |_ " +
+                        "|_||_||_||_||_||_||_||_||_|";
+        //then
+        assertThat(entryParser.parse(six), is("666666666"));
+    }
+
+    @Test
+     public void parse_account_when_all_are_7() {
+        //given
+        String seven =
+                "" +
+                        " _  _  _  _  _  _  _  _  _ " +
+                        "  |  |  |  |  |  |  |  |  |" +
+                        "  |  |  |  |  |  |  |  |  |";
+        //then
+        assertThat(entryParser.parse(seven), is("777777777"));
+    }
+
+    @Test
+     public void parse_account_when_all_are_8() {
+        //given
+        String eight =
+                "" +
+                        " _  _  _  _  _  _  _  _  _ " +
+                        "|_||_||_||_||_||_||_||_||_|" +
+                        "|_||_||_||_||_||_||_||_||_|";
+        //then
+        assertThat(entryParser.parse(eight), is("888888888"));
+    }
+
+    @Test
+     public void parse_account_when_all_are_9() {
+        //given
+        String nine =
+                "" +
+                        " _  _  _  _  _  _  _  _  _ " +
+                        "|_||_||_||_||_||_||_||_||_|" +
+                        " _| _| _| _| _| _| _| _| _|";
+        //then
+        assertThat(entryParser.parse(nine), is("999999999"));
+    }
 //
 //    @Test
 //     public void should_parse_a_account() {
