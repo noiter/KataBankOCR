@@ -128,16 +128,16 @@ public class EntryParserTest {
         //then
         assertThat(entryParser.parse(nine), is("999999999"));
     }
-//
-//    @Test
-//     public void should_parse_a_account() {
-//        //given
-//        String nine =
-//                "" +
-//                        "    _  _     _  _  _  _  _ " +
-//                        "  | _| _||_||_ |_   ||_||_|" +
-//                        "  ||_  _|  | _||_|  ||_| _|";
-//        //then
-//        assertThat(entryParser.parse(nine), is("123456789"));
-//    }
+
+    @Test
+     public void should_parse_a_account_with_different_digits() {
+        //given
+        String nine =
+                "" +
+                        "    _  _     _  _  _  _  _ " +
+                        "  | _| _||_||_ |_   ||_||_|" +
+                        "  ||_  _|  | _||_|  ||_| _|";
+        //then
+        assertThat(entryParser.parse(nine), is("123456789"));
+    }
 }

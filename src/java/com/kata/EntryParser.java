@@ -43,9 +43,11 @@ public class EntryParser {
     public String parse(String originalAccount) {
         String account = "";
         String singleDigit = "";
-        for(int i = 0, t = i + 3; i <= 24; i = t, t = i + 3){
-            for(int j = 0; j < 3; j++) {
-                singleDigit += originalAccount.substring(i + j * LENGTH_OF_EACH_LINE, t + j * LENGTH_OF_EACH_LINE);
+
+        for(int startIndex = 0, endIndex = startIndex + 3; startIndex <= 24; startIndex = endIndex, endIndex = startIndex + 3){
+            for(int lineIndex = 0; lineIndex < 3; lineIndex++) {
+                singleDigit += originalAccount.substring(startIndex + lineIndex * LENGTH_OF_EACH_LINE,
+                        endIndex + lineIndex * LENGTH_OF_EACH_LINE);
             }
             account += mapper.get(singleDigit);
             singleDigit = "";
