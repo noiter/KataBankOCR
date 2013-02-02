@@ -7,7 +7,7 @@ import static org.junit.Assert.assertThat;
 
 public class EntryParserTest {
 
-    private EntryParser entryParser = new EntryParser();
+    private EntryParser entryParser = new com.kata.EntryParser();
 
     @Test
     public void parse_account_when_all_are_0() {
