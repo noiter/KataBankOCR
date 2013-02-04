@@ -13,9 +13,21 @@ Tasking:
 public class ChecksumTest {
 
     @Test
-    public void put_account_into_ordered_queue() {
+    public void do_check_on_an_account_first_two_numbers() {
         //given
         String account = "34";
+
+        //when
+        double queue = new Checksum().validate(account);
+
+        //then
+        assertThat(queue, is(10.0));
+    }
+
+    @Test
+    public void do_check_on_a_complete_account() {
+        //given
+        String account = "345882865";
 
         //when
         double queue = new Checksum().validate(account);
