@@ -7,22 +7,20 @@ import static org.junit.Assert.assertThat;
 
 /*
 Tasking:
-    1) split each digit from account string
-    2) figure each digit's position among the string
-    3) do checksum
+    1) Checksum on an account's first two numbers
+    2) do checksum on an account
  */
 public class ChecksumTest {
 
     @Test
     public void put_account_into_ordered_queue() {
         //given
-        String account = "345882865";
-        int[] queue;
+        String account = "34";
 
         //when
-        queue = new Checksum().validate(account);
+        double queue = new Checksum().validate(account);
 
         //then
-        assertThat(queue, is(new int[]{3, 4, 5, 8, 8, 2, 8, 6, 5}));
+        assertThat(queue, is(0.0));
     }
 }
