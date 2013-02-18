@@ -55,20 +55,35 @@ public class AccountResultTest {
         verify(mockOutput).print("457508000");
     }
 
-//    @Test
-//    public void print_a_error_account_with_checksum() throws Exception {
-//        //given
-//        String accountSource =
-//                "" +
-//                        " _  _     _  _        _  _ " +
-//                        "|_ |_ |_| _|  |  ||_||_||_ " +
-//                        "|_||_|  | _|  |  |  | _| _|";
-//
-//        //when
-//        new AccountResult(accountSource, mockOutput).printAccountResult();
-//
-//        //then
-//        verify(mockOutput).print("664371495 ERR");
-//    }
+    @Test
+    public void print_a_error_account_with_checksum() throws Exception {
+        //given
+        String accountSource =
+                "" +
+                        " _  _     _  _        _  _ " +
+                        "|_ |_ |_| _|  |  ||_||_||_ " +
+                        "|_||_|  | _|  |  |  | _| _|";
 
+        //when
+        new AccountResult(accountSource, mockOutput).printAccountResult();
+
+        //then
+        verify(mockOutput).print("664371495 ERR");
+    }
+
+    @Test
+    public void print_a_illegible_account_with_checksum() throws Exception {
+        //given
+        String accountSource =
+                "" +
+                        " _  _        _        _  _ " +
+                        "|_||_   |  || || ||_  _||_ " +
+                        "|_||_|  |  ||_| _|| | _||_|";
+
+        //when
+        new AccountResult(accountSource, mockOutput).printAccountResult();
+
+        //then
+        verify(mockOutput).print("86110??36 ILL");
+    }
 }

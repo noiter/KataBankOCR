@@ -6,6 +6,7 @@ import java.util.Map;
 public class EntryParser {
 
     public static final int LENGTH_OF_EACH_LINE = 27;
+    public static final String SUBSTITUTE_WHEN_ILLEGIBLE = "?";
     private static final Map<String, String> mapper = new HashMap<String, String>();
     static {
         mapper.put(" _ " +
@@ -40,6 +41,7 @@ public class EntryParser {
                    " _|", "9");
     }
 
+
     public String parse(String originalAccount) {
         String account = "";
         String singleDigit = "";
@@ -49,7 +51,11 @@ public class EntryParser {
                 singleDigit += originalAccount.substring(startIndex + lineIndex * LENGTH_OF_EACH_LINE,
                         endIndex + lineIndex * LENGTH_OF_EACH_LINE);
             }
-            account += mapper.get(singleDigit);
+            if(mapper.containsKey(singleDigit)) {
+                account += mapper.get(singleDigit);
+            } else {
+                account += SUBSTITUTE_WHEN_ILLEGIBLE;
+            }
             singleDigit = "";
         }
         return account;

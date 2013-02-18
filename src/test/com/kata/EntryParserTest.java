@@ -58,7 +58,7 @@ public class EntryParserTest {
     }
 
     @Test
-     public void parse_account_when_all_are_4() {
+    public void parse_account_when_all_are_4() {
         //given
         String four =
                 "" +
@@ -70,7 +70,7 @@ public class EntryParserTest {
     }
 
     @Test
-     public void parse_account_when_all_are_5() {
+    public void parse_account_when_all_are_5() {
         //given
         String five =
                 "" +
@@ -82,7 +82,7 @@ public class EntryParserTest {
     }
 
     @Test
-     public void parse_account_when_all_are_6() {
+    public void parse_account_when_all_are_6() {
         //given
         String six =
                 "" +
@@ -94,7 +94,7 @@ public class EntryParserTest {
     }
 
     @Test
-     public void parse_account_when_all_are_7() {
+    public void parse_account_when_all_are_7() {
         //given
         String seven =
                 "" +
@@ -106,7 +106,7 @@ public class EntryParserTest {
     }
 
     @Test
-     public void parse_account_when_all_are_8() {
+    public void parse_account_when_all_are_8() {
         //given
         String eight =
                 "" +
@@ -118,7 +118,7 @@ public class EntryParserTest {
     }
 
     @Test
-     public void parse_account_when_all_are_9() {
+    public void parse_account_when_all_are_9() {
         //given
         String nine =
                 "" +
@@ -130,7 +130,7 @@ public class EntryParserTest {
     }
 
     @Test
-     public void should_parse_a_account_with_different_digits() {
+    public void should_parse_a_account_with_different_digits() {
         //given
         String nine =
                 "" +
@@ -139,5 +139,17 @@ public class EntryParserTest {
                         "  ||_  _|  | _||_|  ||_| _|";
         //then
         assertThat(entryParser.parse(nine), is("123456789"));
+    }
+
+    @Test
+    public void should_parse_a_account_contains_illegible_digits() {
+        //given
+        String nine =
+                "" +
+                        "    _  _     _  _  _  _  _ " +
+                        "  | _| _||_||_ |_ | |  ||_|" +
+                        "  ||_  _|  | _||_| _||_  _|";
+        //then
+        assertThat(entryParser.parse(nine), is("123456??9"));
     }
 }
