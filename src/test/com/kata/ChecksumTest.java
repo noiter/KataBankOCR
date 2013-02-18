@@ -2,8 +2,8 @@ package com.kata;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /*
 Tasking:
@@ -18,10 +18,10 @@ public class ChecksumTest {
         String account = "34";
 
         //when
-        double queue = new Checksum().validate(account);
+        Boolean result = new Checksum().validate(account);
 
         //then
-        assertThat(queue, is(10.0));
+        assertFalse(result);
     }
 
     @Test
@@ -30,9 +30,21 @@ public class ChecksumTest {
         String account = "345882865";
 
         //when
-        double queue = new Checksum().validate(account);
+        Boolean result = new Checksum().validate(account);
 
         //then
-        assertThat(queue, is(0.0));
+        assertTrue(result);
+    }
+
+    @Test
+    public void do_check_on_another_complete_account() {
+        //given
+        String account = "457508000";
+
+        //when
+        Boolean result = new Checksum().validate(account);
+
+        //then
+        assertTrue(result);
     }
 }

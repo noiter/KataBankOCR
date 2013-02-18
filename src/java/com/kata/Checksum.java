@@ -3,10 +3,11 @@ package com.kata;
 public class Checksum {
 
     public static final int FACTOR = 11;
+    public static final double DIVISIBLE_FLAG = 0.0;
 
-    public double validate(String account) {
+    public Boolean validate(String account) {
 
-        return (double) (checkSumOnAccount(account) % FACTOR);
+        return (checkSumOnAccount(account) % FACTOR) == DIVISIBLE_FLAG;
     }
 
     private int checkSumOnAccount(String account) {
