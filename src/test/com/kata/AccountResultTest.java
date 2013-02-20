@@ -36,7 +36,7 @@ public class AccountResultTest {
                         "  | _|  | _||_||_||_||_||_|";
 
         //when
-        new AccountResult(accountSource, mockOutput).printAccountResult();
+        new AccountResult(accountSource, mockOutput).printAccountsResult();
 
         //then
         verify(mockOutput).print("457508000");
@@ -52,7 +52,7 @@ public class AccountResultTest {
                         "|_||_|  | _|  |  |  | _| _|";
 
         //when
-        new AccountResult(accountSource, mockOutput).printAccountResult();
+        new AccountResult(accountSource, mockOutput).printAccountsResult();
 
         //then
         verify(mockOutput).print("664371495 ERR");
@@ -68,7 +68,7 @@ public class AccountResultTest {
                         "|_||_|  |  ||_| _|| | _||_|";
 
         //when
-        new AccountResult(accountSource, mockOutput).printAccountResult();
+        new AccountResult(accountSource, mockOutput).printAccountsResult();
 
         //then
         verify(mockOutput).print("86110??36 ILL");

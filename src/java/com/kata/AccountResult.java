@@ -1,6 +1,7 @@
 package com.kata;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class AccountResult {
@@ -13,14 +14,6 @@ public class AccountResult {
     private EntryParser entryParser;
 
     private final List<String> accounts = new ArrayList<String>();
-    private String account;
-
-    public AccountResult(String originalAccount, Output output) {
-        this.entryParser = new EntryParser();
-        this.checksum = new Checksum();
-        this.output = output;
-        this.account = entryParser.parse(originalAccount);
-    }
 
     public AccountResult(List<String> accounts, Output output) {
         this.entryParser = new EntryParser();
@@ -31,12 +24,8 @@ public class AccountResult {
         }
     }
 
-    public void printAccountResult() {
-        if (account.contains(entryParser.SUBSTITUTE_WHEN_ILLEGIBLE)) {
-            output.print(account + ILLEGIBLE_FLAG);
-            return;
-        }
-        output.print((checksum.validate(account)) ? account : (account + ERROR_FLAG));
+    public AccountResult(String originalAccount, Output output) {
+        this(Arrays.asList(originalAccount), output);
     }
 
     public void printAccountsResult() {
