@@ -37,4 +37,5 @@ public class AccountResult {
             output.print((checksum.validate(account)) ? account : (account + ERROR_FLAG));
         }
     }
+
 }

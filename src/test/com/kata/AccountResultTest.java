@@ -14,7 +14,7 @@ import static org.mockito.Mockito.verify;
  * 1) Print a correct account with checksum
  * 2) Print a ERR account
  * 3) Print a ILL account
- * 4) Print more than one account(In progress)
+ * 4) Print more than one account
  */
 
 public class AccountResultTest {
