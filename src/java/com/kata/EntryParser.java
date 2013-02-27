@@ -41,7 +41,6 @@ public class EntryParser {
                    " _|", "9");
     }
 
-
     public String parse(String originalAccount) {
         String account = "";
         String singleDigit = "";

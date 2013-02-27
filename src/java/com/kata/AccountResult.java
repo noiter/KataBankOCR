@@ -8,6 +8,7 @@ public class AccountResult {
 
     public static final String ILLEGIBLE_FLAG = " ILL";
     public static final String ERROR_FLAG = " ERR";
+    public static final String MULTIPLE_PROB_FLAG = " AMB";
 
     private Output output;
     private Checksum checksum;
@@ -38,4 +39,28 @@ public class AccountResult {
         }
     }
 
+    public void printAccountsResultAfterCorrected() {
+        //        Boolean isIllegal = accounts.contains(entryParser.SUBSTITUTE_WHEN_ILLEGIBLE);
+
+        if (!checksum.validate(this.accounts.get(0))) {
+            List<String> list = new Correcter().correct(this.accounts.get(0));
+            List<String> tempAccounts = new ArrayList<String>();
+
+            for (String account : list) {
+                if (checksum.validate(account)) {
+                    tempAccounts.add(account);
+                }
+            }
+
+            if(tempAccounts.size() == 1){
+                output.print(tempAccounts.get(0));
+            } else if(tempAccounts.size() < 1){
+                output.print(this.accounts.get(0) + ILLEGIBLE_FLAG);
+            } else {
+                output.print(this.accounts.get(0) + MULTIPLE_PROB_FLAG);
+            }
+        }  else {
+            output.print(this.accounts.get(0));
+        }
+    }
 }

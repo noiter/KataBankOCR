@@ -19,6 +19,7 @@ public class Correcter {
     }
 
     public List<String> correct(String accountStr) {
+
         List<String> accountList = new ArrayList<String>();
 
         for (int i = 0; i < accountStr.length(); i++) {

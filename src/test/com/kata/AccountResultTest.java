@@ -103,4 +103,47 @@ public class AccountResultTest {
         verify(mockOutput).print("664371495 ERR");
         verify(mockOutput).print("86110??36 ILL");
     }
+
+    /*
+     * Tasking:
+     * 1) correct a correct account with checksum
+     * 2) correct a error account with checksum
+     * 3) correct a illegal account with checksum
+     */
+
+    @Test
+    public void correct_a_correct_composition_after_checked() throws Exception {
+
+        //given
+        String account =
+                "" +
+                        "    _  _  _  _  _  _  _  _ " +
+                        "|_||_   ||_ | ||_|| || || |" +
+                        "  | _|  | _||_||_||_||_||_|";
+
+        //when
+        new AccountResult(account, mockOutput).printAccountsResultAfterCorrected();
+
+        //then
+        verify(mockOutput).print("457508000");
+
+    }
+
+    @Test
+    public void correct_a_error_composition_after_checked() throws Exception {
+
+        //given
+        String account =
+                "" +
+                        " _  _     _  _        _  _ " +
+                        "|_ |_ |_| _|  |  ||_||_||_ " +
+                        "|_||_|  | _|  |  |  | _| _|";
+
+        //when
+        new AccountResult(account, mockOutput).printAccountsResultAfterCorrected();
+
+        //then
+        verify(mockOutput).print("664371485");
+
+    }
 }
