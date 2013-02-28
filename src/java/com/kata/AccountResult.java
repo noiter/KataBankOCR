@@ -40,27 +40,37 @@ public class AccountResult {
     }
 
     public void printAccountsResultAfterCorrected() {
-        //        Boolean isIllegal = accounts.contains(entryParser.SUBSTITUTE_WHEN_ILLEGIBLE);
 
-        if (!checksum.validate(this.accounts.get(0))) {
-            List<String> list = new Correcter().correct(this.accounts.get(0));
-            List<String> tempAccounts = new ArrayList<String>();
-
-            for (String account : list) {
-                if (checksum.validate(account)) {
-                    tempAccounts.add(account);
-                }
-            }
-
-            if(tempAccounts.size() == 1){
-                output.print(tempAccounts.get(0));
-            } else if(tempAccounts.size() < 1){
-                output.print(this.accounts.get(0) + ILLEGIBLE_FLAG);
+        for (String account : this.accounts) {
+            //print account result with correcter
+            if (!checksum.validate(account)) {
+                estimatePerAccountAfterCorrected(account);
             } else {
-                output.print(this.accounts.get(0) + MULTIPLE_PROB_FLAG);
+                output.print(account);
             }
-        }  else {
-            output.print(this.accounts.get(0));
+        }
+    }
+
+    private void estimatePerAccountAfterCorrected(String account) {
+        List<String> accountsAfterCorrected = new Correcter().correct(account);
+        List<String> tempAccounts = new ArrayList<String>();
+
+        for (String accountAfterCorrected : accountsAfterCorrected) {
+            if (checksum.validate(accountAfterCorrected)) {
+                tempAccounts.add(accountAfterCorrected);
+            }
+        }
+
+        estimateFinalResult(account, tempAccounts);
+    }
+
+    private void estimateFinalResult(String account, List<String> accounts) {
+        if (accounts.size() == 1) {
+            output.print(accounts.get(0));
+        } else if (accounts.size() < 1) {
+            output.print(account + ILLEGIBLE_FLAG);
+        } else {
+            output.print(account + MULTIPLE_PROB_FLAG);
         }
     }
 }

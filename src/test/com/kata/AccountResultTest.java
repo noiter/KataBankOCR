@@ -146,4 +146,30 @@ public class AccountResultTest {
         verify(mockOutput).print("664371485");
 
     }
+
+    @Test
+    public void correct_compositions_array_after_checked() throws Exception {
+
+        //given
+        String account1 =
+                "" +
+                        "    _  _  _  _  _  _  _  _ " +
+                        "|_||_   ||_ | ||_|| || || |" +
+                        "  | _|  | _||_||_||_||_||_|";
+        String account2 =
+                "" +
+                        " _  _     _  _        _  _ " +
+                        "|_ |_ |_| _|  |  ||_||_||_ " +
+                        "|_||_|  | _|  |  |  | _| _|";
+
+        List<String> accounts = Arrays.asList(account1, account2);
+
+        //when
+        new AccountResult(accounts, mockOutput).printAccountsResultAfterCorrected();
+
+        //then
+        verify(mockOutput).print("457508000");
+        verify(mockOutput).print("664371485");
+
+    }
 }
